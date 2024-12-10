@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../main.css" />
+    <link rel="stylesheet" href="../style/main.css" />
     <title>판다마켓</title>
     <link rel="icon" href="../assets/logo.ico" />
+
     <!-- Google Analytics -->
     <script
       async
@@ -17,23 +18,21 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-H6W3E6RE1M");
     </script>
   </head>
+
   <body>
     <!-- 헤더 -->
     <header class="hd">
       <div class="header">
         <img
+          id="home"
           width="153px"
           height="51px"
           src="../assets/headerIcon.png"
-          onclick="location.href=''"
         />
-        <button class="loginBtn" onclick="location.href='./login.html'">
-          로그인
-        </button>
+        <button id="login" class="loginBtn">로그인</button>
       </div>
     </header>
 
@@ -43,9 +42,7 @@
         <section class="blueCard">
           <div class="blueCardBox">
             <div>일상의 모든 물건을<br />거래해 보세요</div>
-            <button onclick="location.href='./items.html'">
-              구경하러 가기
-            </button>
+            <button id="items">구경하러 가기</button>
           </div>
           <img src="../assets/Img_home_top.png" />
         </section>
@@ -100,10 +97,10 @@
         <div class="footerBox">
           <div class="footerText">©codeit - 2024</div>
           <div class="footerBtn">
-            <p onclick="location.href='./privacy.html'">Privacy Policy</p>
+            <p id="privacy">Privacy Policy</p>
             <!-- 글사이 간격을 위한 공백 -->
             <div class="space"></div>
-            <p onclick="location.href='./fqa.html'">FAQ</p>
+            <p id="fqa">FAQ</p>
           </div>
 
           <div class="footerIcon">
@@ -127,5 +124,6 @@
         </div>
       </footer>
     </div>
+    <script src="../js/main.js"></script>
   </body>
 </html>

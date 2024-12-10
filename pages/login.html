@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>판다마켓</title>
     <link rel="icon" href="../assets/logo.ico" />
-    <link rel="stylesheet" href="../login.css" />
+    <link rel="stylesheet" href="../style/login.css" />
   </head>
   <body>
     <section>
       <img
         src="../assets/logo.png"
         alt="판다마켓"
-        onclick="location.href='main.html'"
+       id="home"
       />
-      <div class="loginBox">
+      <form class="loginBox">
         이메일<input type="email" placeholder="이메일을 입력해주세요" />
         <div class="passwordBox">
           <input id="pw" type="password" placeholder="비밀번호를 입력해주세요" >
@@ -40,9 +40,10 @@
         </div>
         <div class="signUpBox">
           판다마켓이 처음이신가요?
-          <a onclick="location.href='./signup.html'">회원가입</a>
+          <a id="signUp">회원가입</a>
         </div>
-      </div>
+      </form>
     </section>
+    <script src="../js/login.js"></script>
   </body>
 </html>
