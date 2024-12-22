@@ -4,8 +4,6 @@
 html,
 body {
   font-family: Pretandard;
-  width: 100%;
-  height: 100%;
 }
 main {
   width: 100%;
@@ -20,7 +18,7 @@ main > img {
   cursor: pointer;
 }
 
-.loginBox {
+.login-box {
   display: flex;
   flex-direction: column;
   max-width: 640px;
@@ -32,7 +30,7 @@ main > img {
   line-height: 26px;
 }
 
-.loginBox > button {
+.login-box > button {
   font-size: 20px;
   font-weight: 600;
   line-height: 32px;
@@ -45,10 +43,10 @@ main > img {
   cursor: pointer;
 }
 
-.loginBox > button:hover {
+.login-box > button:hover {
   background-color: var(--input-focus);
 }
-.loginBox > button:disabled {
+.login-box > button:disabled {
   cursor: not-allowed;
   background-color: var(--login-btn-bg);
 }
@@ -90,7 +88,7 @@ main > img {
   text-align: left;
 }
 
-.socialLoginBox {
+.social-login-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -98,21 +96,21 @@ main > img {
   border-radius: 8px;
   background-color: var(--sicial-login-bg);
 }
-.iconBox {
+.icon-box {
   word-spacing: 16px;
 }
-.iconBox > img {
+.icon-box > img {
   cursor: pointer;
 }
 
-.signUpBox {
+.sign-up-box {
   text-align: center;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
 }
 
-.signUpBox > a {
+.sign-up-box > a {
   color: var(--login-link);
   font-size: 14px;
   font-weight: 500;

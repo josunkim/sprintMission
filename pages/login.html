@@ -15,12 +15,14 @@
   </head>
   <body>
     <main>
+      <a href="main.html">
       <img
         src="../assets/logo.png"
         alt="판다마켓"
        id="home"
       />
-      <form class="loginBox">
+    </a>
+      <form class="login-box">
         <div class="input-box">
           이메일<input id="email" type="email" value="" placeholder="이메일을 입력해주세요" />
         <p id="emailError"></p>
@@ -32,24 +34,25 @@
         <p id="pwError"></p>
         </div>
         <button id="login" type="button" disabled>로그인</button>
-        <div class="socialLoginBox">
+        <div class="social-login-box">
           간편 로그인하기
-          <div class="iconBox">
+          <div class="icon-box">
+            <a href= "https://www.google.com/">
             <img
               src="../assets/google_logo_icon.png"
-              onclick="window.open('https://www.google.com/')"
-            />
+              /></a>
+            <a href="https://www.kakaocorp.com/page/">
             <img
               src="../assets/kakao_logo_icon.png"
-              onclick="window.open('https://www.kakaocorp.com/page/')"
-            />
+              /><a>
           </div>
         </div>
-        <div class="signUpBox">
+        <div class="sign-up-box">
           판다마켓이 처음이신가요?
-          <a id="signUp">회원가입</a>
+          <a href="signup.html">회원가입</a>
         </div>
       </form>
+      
       <div class="modal">
         <div class="modal-popup">
           <p class="modal-message"></p>
