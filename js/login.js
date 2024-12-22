@@ -1,12 +1,3 @@
-const PATH = {
-  HOME: "main.html",
-  LOGIN: "login.html",
-  SIGNUP: "signup.html",
-  PRIVACY: "privacy.html",
-  FQA: "fqa.html",
-  ITEMS: "items.html",
-};
-
 const USER_DATA = [
   { email: "codeit1@codeit.com", password: "codeit101!" },
   { email: "codeit2@codeit.com", password: "codeit202!" },
@@ -17,8 +8,6 @@ const USER_DATA = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-  const home = document.getElementById("home");
-  const signUp = document.getElementById("signUp");
   const pw = document.getElementById("pw");
   const pwError = document.getElementById("pwError");
   const pwView = document.getElementById("pwView");
@@ -48,12 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
       main.style.height = "calc(100vh - 48px)";
     }
   });
-
-  const router = (button, path) => {
-    button.addEventListener("click", () => {
-      location.href = path;
-    });
-  };
 
   const debounce = (func, delay) => {
     let timer;
@@ -141,15 +124,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   login.addEventListener("click", () => {
-    let serch = USER_DATA.findIndex((d) => {
+    let serch = USER_DATA.find((d) => {
       return d.email === email.value;
     });
-    if (serch === -1) {
+    console.log(serch);
+    if (!serch) {
       modalOpen("일치하는 회원정보가 없습니다.");
-    } else if (USER_DATA[serch].password !== pw.value) {
+    } else if (serch.password !== pw.value) {
       modalOpen("비밀번호가 일치하지 않습니다.");
     } else {
-      location.href = PATH.ITEMS;
+      location.href = "./items.html";
     }
   });
 
@@ -161,6 +145,4 @@ document.addEventListener("DOMContentLoaded", () => {
   focusOut(pw, pwError, "패스워드를 입력해 주세요.");
   keyUp(email, emailError, "잘못된 이메일 형식입니다.");
   keyUp(pw, pwError, "비밀번호를 8자 이상 입력해주세요.");
-  router(home, PATH.HOME);
-  router(signUp, PATH.SIGNUP);
 });

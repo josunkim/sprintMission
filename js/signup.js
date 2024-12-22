@@ -17,8 +17,6 @@ const USER_DATA = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-  const home = document.getElementById("home");
-  const signUp = document.getElementById("signUp");
   const email = document.getElementById("email");
   const emailError = document.getElementById("emailError");
   const pw = document.getElementById("pw");
@@ -165,6 +163,4 @@ document.addEventListener("DOMContentLoaded", () => {
   validate(email, emailValidate, "잘못된 이메일 형식입니다.", emailError);
   validate(pw, pwValidate, "비밀번호를 8자이상 입력해주세요.", pwError);
   passwordCheck(pw, pwCheck, "비밀번호가 일치하지 않습니다.");
-  router(home, PATH.HOME);
-  router(login, PATH.LOGIN);
 });
