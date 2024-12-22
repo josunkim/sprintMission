@@ -15,12 +15,13 @@
   </head>
   <body>
     <main>
+      <a href="main.html">
       <img
       id="home"
         src="../assets/logo.png"
         alt="판다마켓"
-      />
-      <form class="loginBox">
+      /></a>
+      <form class="login-box">
         <div class="input-box">
         이메일<input id="email" type="email" placeholder="이메일을 입력해주세요" />
         <p id="emailError"></p>
@@ -50,22 +51,20 @@
         <p id="pwCheckError"></p>
         </div>
         <button id="signUp" type="button">회원가입</button>
-        <div class="socialLoginBox">
+        <div class="social-login-box">
           간편 로그인하기
-          <div class="iconBox">
-            <img
+          <div class="icon-box">
+            <a href="https://www.google.com/"><img
               src="../assets/google_logo_icon.png"
-              onclick="window.open('https://www.google.com/')"
-            />
-            <img
+             /></a>
+            <a href="https://www.kakaocorp.com/page/"><img
               src="../assets/kakao_logo_icon.png"
-              onclick="window.open('https://www.kakaocorp.com/page/')"
-            />
+            /></a>
           </div>
         </div>
-        <div class="signUpBox">
+        <div class="sign-up-box">
           이미 회원이신가요?
-          <a id="login">로그인</a>
+          <a href="login.html">로그인</a>
         </div>
       </form>
       <div class="modal">
