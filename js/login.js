@@ -21,23 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const emailValidate = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
   const pwValidate = /^(?=.*[a-zA-Z])(?=.*[0-8])(?=.*[!@#$%^*+=-]).{6,16}$/;
 
-  window.addEventListener("resize", (e) => {
-    if (e.target.innerWidth < 1200) {
-      const main = document.querySelector("main");
-      main.style.padding = "48px 52px 48px 52px";
-      main.style.width = "calc(100% - 104px)";
-      main.style.margin = "0 auto";
-      main.style.height = "calc(100vh - 96px)";
-    }
-    if (e.target.innerWidth < 744) {
-      const main = document.querySelector("main");
-      main.style.padding = "24px 15px 24px 15px";
-      main.style.width = "calc(100% - 30px)";
-      main.style.margin = "0 auto";
-      main.style.height = "calc(100vh - 48px)";
-    }
-  });
-
   const debounce = (func, delay) => {
     let timer;
     return function () {
@@ -146,3 +129,17 @@ document.addEventListener("DOMContentLoaded", () => {
   keyUp(email, emailError, "잘못된 이메일 형식입니다.");
   keyUp(pw, pwError, "비밀번호를 8자 이상 입력해주세요.");
 });
+
+class Modal extends HTMLElement {
+  constructor() {}
+
+  open(msg) {
+    this.modalMessage.textContent = msg;
+    this.modal.style.display = "block";
+  }
+
+  close() {
+    this.modalMessage.textContent = "";
+    this.modal.style.display = "none";
+  }
+}
