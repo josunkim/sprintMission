@@ -1,13 +1,5 @@
 import axios from "axios";
 
-const product = {
-  getProductList,
-  getProduct,
-  createProduct,
-  patchProduct,
-  deleteProduct,
-};
-
 const productAxios = axios.create({
   baseURL: "https://sprint-mission-api.vercel.app/products",
   headers: { "Content-Type": "application/json" },
@@ -25,8 +17,9 @@ const getProductList = async (page = 1, pageSize = 100, keyword = " ") => {
     const res = await productAxios.get("", { params });
     const result = res.data;
     return result;
-  } catch (e) {
-    console.log("error : ", e);
+  } catch (error) {
+    console.log("error : ", error);
+    return error;
   }
 };
 /**
@@ -37,8 +30,9 @@ const getProduct = async (id) => {
     const res = await productAxios(`/${id}`);
     const result = res.data;
     return result;
-  } catch (e) {
-    console.log("error : ", e);
+  } catch (error) {
+    console.log("error : ", error);
+    return error;
   }
 };
 
@@ -60,8 +54,10 @@ const createProduct = async (
   const data = { name, description, price, tags, images };
   try {
     const res = await productAxios.post("", data);
+    return res;
   } catch (error) {
     console.log("error :", error);
+    return error;
   }
 };
 
@@ -77,6 +73,7 @@ const patchProduct = async (id, name, description, price, tags, images) => {
   const data = { name, description, price, tags, images };
   try {
     const res = await productAxios.patch(`/${id}`, data);
+    return res;
   } catch (error) {
     console.log("error :", error);
   }
@@ -89,10 +86,19 @@ const patchProduct = async (id, name, description, price, tags, images) => {
 const deleteProduct = async (id) => {
   try {
     const res = await productAxios.delete(`/${id}`);
-    console.log(res.status);
+    return res;
   } catch (error) {
     console.log("error :", error);
+    return error;
   }
+};
+
+const product = {
+  getProductList,
+  getProduct,
+  createProduct,
+  patchProduct,
+  deleteProduct,
 };
 
 export { product };

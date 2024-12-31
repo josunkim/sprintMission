@@ -1,13 +1,5 @@
 import axios from "axios";
 
-const article = {
-  getArticleList,
-  getArticle,
-  createArticle,
-  patchArticle,
-  deleteArticle,
-};
-
 const articleAxios = axios.create({
   baseURL: "https://sprint-mission-api.vercel.app/articles",
   headers: { "Content-Type": "application/json" },
@@ -23,18 +15,16 @@ const articleAxios = axios.create({
 const getArticleList = (page = 1, pageSize = 100, keyword = " ") => {
   const params = { page, pageSize, keyword };
   return articleAxios
-    .get("", params)
+    .get("", { params })
     .then((res) => {
-      if (!res.ok) {
+      if (res.status !== 200) {
         throw new Error("API 호출 실패");
       }
-      return res.json();
+      return res.data;
     })
-    .then((result) => {
-      return result;
-    })
-    .catch((e) => {
-      console.log("error : ", e);
+    .catch((error) => {
+      console.error("error : ", error.message);
+      return Promise.reject(error);
     });
 };
 
@@ -44,11 +34,11 @@ const getArticleList = (page = 1, pageSize = 100, keyword = " ") => {
 
 const getArticle = async (id) => {
   try {
-    const res = (await articleAxios).get(`/${id}`);
-    const result = await res.json();
-    return result;
-  } catch (e) {
-    console.log("error : ", e);
+    const res = await articleAxios(`/${id}`);
+    return res.data;
+  } catch (error) {
+    console.log("error : ", error);
+    return error;
   }
 };
 /**
@@ -60,8 +50,10 @@ const createArticle = async (title = "", content = "", image = "") => {
   const data = { title, content, image };
   try {
     const res = await articleAxios.post("", data);
+    return res;
   } catch (error) {
     console.log("error :", error);
+    return error;
   }
 };
 
@@ -76,8 +68,10 @@ const patchArticle = async (id = 0, title = "", content = "", image = "") => {
   const data = { title, content, image };
   try {
     const res = await articleAxios.patch(`/${id}`, data);
+    return res.data;
   } catch (error) {
     console.log("error :", error);
+    return error;
   }
 };
 
@@ -87,10 +81,20 @@ const patchArticle = async (id = 0, title = "", content = "", image = "") => {
 
 const deleteArticle = async (id) => {
   try {
-    const res = await fetch(`/${id}`);
+    const res = await articleAxios.delete(`/${id}`);
+    return res;
   } catch (error) {
     console.log("error :", error);
+    return error;
   }
+};
+
+const article = {
+  getArticleList,
+  getArticle,
+  createArticle,
+  patchArticle,
+  deleteArticle,
 };
 
 export { article };
